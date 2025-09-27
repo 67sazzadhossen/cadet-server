@@ -2,13 +2,11 @@ import { NextFunction, Request, Response } from "express";
 import { UserServices } from "./user.service";
 import { sendResponse } from "../../utils/sendResponse";
 import status from "http-status";
+import catchAsync from "../../utils/catchAsync";
 
-const createStudent = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  try {
+const createStudent = catchAsync(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async (req: Request, res: Response, next: NextFunction) => {
     const { password, student } = req.body;
 
     // validation
@@ -27,10 +25,8 @@ const createStudent = async (
       message: "Student is created successfully",
       data: result,
     });
-  } catch (error) {
-    next(error);
   }
-};
+);
 
 export const UserControllers = {
   createStudent,

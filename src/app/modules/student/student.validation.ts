@@ -41,29 +41,34 @@ export const LocalGuardianValidationSchema = z.object({
 
 // Student Schema
 export const StudentValidationSchema = z.object({
-  id: z.string().min(1, "Student ID is required"),
-  password: z.string().max(20),
-  name: NameValidationSchema,
-  gender: GenderEnum,
-  dateOfBirth: z.string().min(1, "Date of birth is required"), // You can add .regex(...) for strict ISO validation
-  email: z.email("Invalid email address"),
-  contactNo: z.string().min(1, "Contact number is required"),
-  emergencyContactNo: z.string().min(1, "Emergency contact number is required"),
-  bloodGroup: BloodGroupEnum.optional(),
-  presentAddress: z.string().min(1, "Present address is required"),
-  permanentAddress: z.string().min(1, "Permanent address is required"),
-  nationality: z.string().optional(),
-  religion: z.string().optional(),
-  profileImageUrl: z.url("Invalid image URL").optional(),
-  guardian: GuardianValidationSchema,
-  localGuardian: LocalGuardianValidationSchema,
-  admissionDate: z.string().optional(), // Add date validation if needed
-  academicYear: z.string().optional(),
-  classOrGrade: z.string().optional(),
-  rollNumber: z.string().optional(),
-  section: z.string().optional(),
-  isActive: StatusEnum,
-  createdAt: z.string().min(1, "Created date is required"),
-  updatedAt: z.string().optional(),
-  isDeleted: z.boolean(),
+  body: z.object({
+    password: z.string().max(20),
+    student: z.object({
+      name: NameValidationSchema,
+      gender: GenderEnum,
+      dateOfBirth: z.string().min(1, "Date of birth is required"), // You can add .regex(...) for strict ISO validation
+      email: z.email("Invalid email address"),
+      contactNo: z.string().min(1, "Contact number is required"),
+      emergencyContactNo: z
+        .string()
+        .min(1, "Emergency contact number is required"),
+      bloodGroup: BloodGroupEnum.optional(),
+      presentAddress: z.string().min(1, "Present address is required"),
+      permanentAddress: z.string().min(1, "Permanent address is required"),
+      nationality: z.string().optional(),
+      religion: z.string().optional(),
+      profileImageUrl: z.url("Invalid image URL").optional(),
+      guardian: GuardianValidationSchema,
+      localGuardian: LocalGuardianValidationSchema,
+      admissionDate: z.string().optional(), // Add date validation if needed
+      academicYear: z.string().optional(),
+      classOrGrade: z.string().optional(),
+      rollNumber: z.string().optional(),
+      section: z.string().optional(),
+      admissionSemester: z.string(),
+      isActive: StatusEnum,
+      createdAt: z.string().min(1, "Created date is required"),
+      updatedAt: z.string().optional(),
+    }),
+  }),
 });

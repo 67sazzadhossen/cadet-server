@@ -7,6 +7,7 @@ import {
   TName,
   TStudent,
 } from "./student.interface";
+import { AcademicSemester } from "../academicSemester/academicSemester.model";
 
 const NameSchema = new Schema<TName>({
   firstName: { type: String, required: true, trim: true },
@@ -106,6 +107,7 @@ const StudentSchema = new Schema<TStudent>(
     },
     admissionDate: { type: String },
     academicYear: { type: String },
+    admissionSemester: { type: Schema.Types.ObjectId, ref: AcademicSemester },
     classOrGrade: { type: String },
     rollNumber: { type: String },
     section: { type: String },
