@@ -58,6 +58,7 @@ export type TStudent = {
   rollNumber?: string;
   section?: string;
   admissionSemester: Types.ObjectId;
+  academicDepartment: Types.ObjectId;
   createdAt: string;
   updatedAt?: string;
   isDeleted: boolean;

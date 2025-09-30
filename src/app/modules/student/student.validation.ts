@@ -66,6 +66,7 @@ export const StudentValidationSchema = z.object({
       rollNumber: z.string().optional(),
       section: z.string().optional(),
       admissionSemester: z.string(),
+      academicDepartment: z.string(),
       isActive: StatusEnum,
       createdAt: z.string().min(1, "Created date is required"),
       updatedAt: z.string().optional(),
