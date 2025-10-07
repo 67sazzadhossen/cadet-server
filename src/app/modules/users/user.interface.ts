@@ -2,7 +2,7 @@ export type TUser = {
   id: string;
   password: string;
   needsPasswordChange: boolean;
-  role: "admin" | "student" | "faculty";
-  status: "in-progress" | "blocked";
+  role: "student" | "teacher" | "admin";
+  status: "in-progress" | "active" | "blocked";
   isDeleted: boolean;
 };
