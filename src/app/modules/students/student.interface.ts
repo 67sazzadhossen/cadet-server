@@ -27,7 +27,7 @@ export type TBloodGroup =
 
 export type TStudent = {
   user: Types.ObjectId;
-  rollNo: string;
+  id: string;
   profileImage: string;
   name: TName;
   dob: Date;
